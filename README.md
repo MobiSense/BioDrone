@@ -7,7 +7,7 @@
 ---
 
 # Implementation Details
-![](https://github.com/Event4BioDrone/BioDrone/blob/main/IMG/implementation.png)
+![](https://github.com/Event4Drone/BioDrone/blob/main/IMG/implementation.png)
 The above figure presents the implementation of BioDrone on a drone platform for obstacle avoidance.
 The arrows indicate data flow.
 
