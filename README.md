@@ -1,4 +1,4 @@
-# Demo Video for BioDrone
+# Demo Video of BioDrone
 
 [![Watch the video](https://i.imgur.com/TIw235B.jpeg)](https://youtu.be/xxxx)
 
