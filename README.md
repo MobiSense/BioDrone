@@ -1,6 +1,5 @@
 # BioDrone
 
-Code, data, and demo video for BioDrone (MobiCom Submission #509)
----
+[![Watch the video](https://i.imgur.com/TIw235B.jpeg)](https://youtu.be/xxxx)
 
-## Demo Video
+🚩 Code and data will be made publicly available before publication.
