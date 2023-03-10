@@ -23,6 +23,6 @@ The output of BioDrone is a low-level obstacle orientation and distance informat
 
 The drone is equipped with two front-facing DAVIS-346 event cameras, in a horizontal stereo setup, connected via USB 3.0 micro to the Jetson TX2.
 The DAVIS-346 sensor provides both frame and events and has a (346 $\times$ 260 pixels) QVGA resolution.
-The horizontal and vertical FoV of DAVIS-346 is around 120$^\circ$ and 100$^\circ$, respectively.
+The horizontal and vertical FoV of DAVIS-346 is around 120$\circ$ and 100$\circ$, respectively.
 
 ## Software
