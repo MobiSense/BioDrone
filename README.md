@@ -16,7 +16,7 @@ The arrows indicate data flow.
 We deploy BioDrone on an AMOVLAB P450-NX drone testbed.
 The drone is equipped with two on-board computational units:
 
-* a [Qualcomm Snapdragon Flight](https://developer.qualcomm.com/hardware/qualcomm-flight-rb5), which is leveraged for monocular visual-inertial odometry (VIO) based pose estimation using the provided Machine Vision SDK and receiving GPS signals.
+* a [Qualcomm Snapdragon Flight](https://developer.qualcomm.com/hardware/qualcomm-flight-rb5), which is leveraged for monocular visual-inertial odometry (VIO) based pose estimation using the provided Machine Vision SDK and received GPS signals.
 * a [Xilinx Zynq-7020](https://www.xilinx.com/products/boards-and-kits/1-571ww1.html) chip or an [Nvidia Jetson TX2](https://developer.nvidia.com/embedded/jetson-tx2) (accompanied with an AUVIDEA J90 carrier board) runs our obstacle detection and localization software stack, as well as an avoidance command planning task.
 
 The output of BioDrone is a low-level obstacle orientation and distance information, based on which a [ArduPilot Mega 2.6](https://www.ardupilot.co.uk/) (APM) filght controller will calculate and produce single-rotor commands and feed them to motor controllers.
