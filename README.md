@@ -26,7 +26,7 @@ The DAVIS-346 sensor provides both frame and events and has a (346 $\times$ 260 
 The horizontal and vertical FoV of DAVIS-346 is around $120^\circ$ and $100^\circ$, respectively.
 
 ## Software
-We develop the software stack in C++ and leverage Robot Operating System (ROS) for communication among different modules.
+We develop the software stack in C++ and leverage Robot Operating System ([ROS Melodic](http://wiki.ros.org/melodic)) for communication among different modules.
 We use the open source [event camera driver](https://github.com/uzh-rpg/rpg_dvs_ros) to stream events from camera to Jetson TX2, and the open source [avoidance algorithm](https://github.com/hku-mars/dyn_small_obs_avoidance) to plan avoidance commands based on obstacle's location.
 To reduce latency, we implemented the obstacle localization and avoidance algorithms within the same ROS module, so that no message exchange is necessary between the camera drivers and the position controller.
 The output of the module is a velocity command, which is then fed to the APM flight controller.
