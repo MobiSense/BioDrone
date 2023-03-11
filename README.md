@@ -1,8 +1,8 @@
 # Demo Video of BioDrone
 
-[![Watch the video](https://i.imgur.com/TIw235B.jpeg)](https://youtu.be/xxxx)
+[![Watch the video](https://github.com/Event4Drone/BioDrone/blob/main/IMG/teaser.png)](https://youtu.be/Wt1sbAhmx9g)
 
-🚩 Code and data will be made publicly available before publication.
+🚩 **Code and data will be made publicly available before publication.**
 
 ---
 
