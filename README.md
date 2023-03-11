@@ -21,7 +21,7 @@ The drone is equipped with two on-board computational units:
 
 The output of BioDrone is a low-level obstacle orientation and distance information, based on which a [ArduPilot Mega 2.6](https://www.ardupilot.co.uk/) (APM) filght controller will calculate and produce single-rotor commands and feed them to motor controllers.
 
-The drone is equipped with two front-facing DAVIS-346 event cameras, in a horizontal stereo setup, connected via USB 3.0 micro to the Jetson TX2.
+The drone is equipped with two front-facing [DAVIS-346](https://inivation.com/wp-content/uploads/2019/08/DAVIS346.pdf) event cameras, in a horizontal stereo setup, connected via USB 3.0 micro to the Jetson TX2.
 The DAVIS-346 sensor provides both frame and events and has a (346 $\times$ 260 pixels) QVGA resolution.
 The horizontal and vertical FoV of DAVIS-346 is around $120^\circ$ and $100^\circ$, respectively.
 
