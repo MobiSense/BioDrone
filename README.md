@@ -2,9 +2,22 @@
 
 [![Watch the video](https://github.com/Event4Drone/BioDrone/blob/main/IMG/teaser.png)](https://youtu.be/Wt1sbAhmx9g)
 
-🚩 **Code and data will be made publicly available before publication.**
+✅ **Code and data will be made publicly available before publication.**
 
 ---
+# Event Camera Preliminary
+![](https://github.com/Event4Drone/BioDrone/blob/main/IMG/event-principle.png)
+Event camera, a cutting-edge biosensor, operates via a unique mechanism distinct from traditional frame-based cameras. It boasts intelligent pixels that bear resemblance to the photoreceptor cells found in biological retinas, each capable of triggering events independently. 
+Unlike conventional cameras that capture images at predetermined intervals, this advanced sensor detects per-pixel luminosity alterations asynchronously, producing a continuous stream of events with a resolution of *microsecond*.
+
+The working principle of an event camera is illustrated in the above figure (left). 
+As seen, let $t_{k-1}$ be the last time when an event fired at a pixel location $\boldsymbol{x} = (u, v)$, and $I_{k-1} = I(\boldsymbol{x}, t_{k-1})$ be the intensity level at such pixel at time $t_{k-1}$. 
+A new event will be fired at the same pixel location $\boldsymbol{x}$ at time $t_k$ once the difference between the intensity $I_{k-1}$ and $I_k$ is larger than a pre-defined threshold $C > 0$. 
+In other words, a new event $e_k = (\boldsymbol{x}, t_k, p_k)$ will be generated if $\Vert I(\boldsymbol{x}, t_{k}) - I(\boldsymbol{x}, t_{k-1}) \Vert \ge C$ (positive event, $p_k=1$) or $\Vert I(\boldsymbol{x}, t_{k}) - I(\boldsymbol{x}, t_{k-1}) \Vert \le -C$ (negative event, $p_k=-1$).
+
+The above figure (right) provides a comparative analysis between an event camera and a frame-based camera. Evidently, the frame-based camera captures frames at a consistent rate, resulting in apparent motion blur. In contrast, the event camera operates continuously, producing a spatiotemporal spiral of polarity changes in brightness.
+
+
 
 # Implementation Details
 ![](https://github.com/Event4Drone/BioDrone/blob/main/IMG/implementation.png)
