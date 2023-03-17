@@ -7,7 +7,7 @@
 ---
 # Event Camera Preliminary
 ![](https://github.com/Event4Drone/BioDrone/blob/main/IMG/event-principle.png)
-(💡A brief introduction to event camera has been already contained in our submission)
+(💡A brief introduction to event camera has been already provided in our submission)
 
 Event camera, a cutting-edge biosensor, operates via a unique mechanism distinct from traditional frame-based cameras. It boasts intelligent pixels that bear resemblance to the photoreceptor cells found in biological retinas, each capable of triggering events independently. 
 Unlike conventional cameras that capture images at predetermined intervals, this advanced sensor detects per-pixel luminosity alterations asynchronously, producing a continuous stream of events with a resolution of *microsecond*.
