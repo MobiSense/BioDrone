@@ -1,10 +1,11 @@
+✅ **Code and data will be made publicly available before publication.**
+
 # Demo Video of BioDrone
 
 [![Watch the video](https://github.com/Event4Drone/BioDrone/blob/main/IMG/teaser.png)](https://youtu.be/Wt1sbAhmx9g)
 
-✅ **Code and data will be made publicly available before publication.**
-
 ---
+
 # Event Camera Preliminary
 ![](https://github.com/Event4Drone/BioDrone/blob/main/IMG/event-principle.png)
 (💡A brief introduction to event camera has already been provided in our submission)
@@ -46,3 +47,82 @@ We use the open source [event camera driver](https://github.com/uzh-rpg/rpg_dvs_
 To reduce latency, we implemented the obstacle localization and avoidance algorithms within the same ROS module, so that no message exchange is necessary between the camera drivers and the position controller.
 The output of the module is a velocity command, which is then fed to the APM flight controller.
 And the APM translates it to low-level motor commands using [PID-like algorithm](https://github.com/prgumd/EVDodgeNet) and finally communicates with the electronic speed controllers to generate the single rotor thrusts. 
+
+---
+# 1. Installation
+We have tested BioDrone under Ubuntu 18.04 with ROS Melodic, using DAVIS346. We recommend using a powerful computer to ensure the performance.
+
+## 1.1 Installation of Dependencies
+- [ROS](http://wiki.ros.org/melodic): operation platform for BioDrone
+- [rpg_dvs_ros](https://github.com/gabime/spdlog): camera driver and utilities
+- [Eigen3](https://gitlab.com/libeigen/eigen): camera-related transformation and computation
+- OpenCV (3.4.16 tested)
+
+## 1.2 Build BioDrone
+1. Prepare a catkin workspace
+```shell
+mkdir -p ~/catkin_ws/src
+cd ~/catkin_ws/src
+catkin_init_workspace
+```
+
+2. Clone the repository to the `src` folder in the workspace
+```shell
+git clone https://github.com/Event4Drone/BioDrone
+```
+
+3. Build the project
+```shell
+cd ~/catkin_ws
+catkin_make
+```
+
+## 1.3 Configure BioDrone with your camera
+BioDrone needs your own configuration of camera intrinsics and transformation matrices.
+1. First locate to the folder of `CameraConfig.h` and open it.
+```shell
+cd BioDrone/include/BioDrone
+vim CameraConfig.h
+```
+2. Configure your camera. Locate the following constants within the config file, and replace them with your camera setup:
+- `const Eigen::Matrix3f Cam::K`: camera intrinsic matrix
+- `const Eigen::Matrix3f Cam::T_ci`: transformation matrix from the IMU reference system to the camera reference system.
+- `const double Cam::baseline`: the baseline distance for the stereo cameras.
+
+3. Recompile the code to save configuration.
+```shell
+cd ~/catkin_ws
+catkin_make
+```
+
+# 2. Dataset Acquisition
+BioDrone subscribes to following ROS topics to receive data, with a publish rate of 1,000 Hz:
+- `/davis/left/events`: The event stream generated from the left camera.
+- `/davis/right/events`: The event stream generated from the right camera.
+- `/davis/left/imu`: The IMU data stream generated from the left camera.
+- `/davis/left/imu`: The IMU data stream generated from the right camera.
+
+You can use ROS utilities(e.g. [rosbag record](https://wiki.ros.org/rosbag/Commandline#record)) record a dataset that contains above data. 
+
+If the topic names in the recorded dataset don't correspond with above topic names, or the publish rate is not 1,000 Hz, you can manually correct them following [this documentation](https://github.com/HKUST-Aerial-Robotics/ESVO/tree/master/events_repacking_helper).
+
+# 3. Usage
+BioDrone currently supports dataset playback under ROS platform.
+1. Check and verify dataset information.
+```shell
+rosbag info your_bag_file.bag
+```
+Executing above commandline instruction will display the timestamps, topics and number of collected data, so you can verify if they conform to above requirements. Also, note down the beginning timestamp of the bag file, which will be needed as an argument later.
+
+2. Start ROS core and BioDrone.
+```shell
+roscore
+rosrun BioDrone main TIMESTAMP
+```
+Replace `TIMESTAMP` with the number you've just noted down. You might need to execute above instructions in two separate shells.
+
+3. Dataset playback. In another separate shell, execute:
+```
+rosbag play your_bag_file.bag
+```
+This will cause BioDrone to receive data from this bag file and start computation. The localization results will output to shell.
