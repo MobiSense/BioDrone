@@ -1,8 +1,21 @@
-✅ **Code and data will be made publicly available before publication.**
 
 # Demo Video of BioDrone
 
 [![Watch the video](https://github.com/Event4Drone/BioDrone/blob/main/IMG/teaser.png)](https://youtu.be/Wt1sbAhmx9g)
+
+# Related Publications
+
+Jingao Xu, Danyang Li, Zheng Yang, Yishujie Zhao, Hao Cao, Yunhao Liu, Longfei Shangguan. 2023. Taming Event Cameras with Bio-Inspired Architecture and Algorithm: A Case for Drone Obstacle Avoidance. In the 29th Annual International Conference on Mobile Computing and Networking (ACM MobiCom ’23)
+
+If you use BioDrone in academic work, please cite:
+```BibTeX
+@inproceedings{xu2023biodrone,
+  title={Taming Event Cameras with Bio-Inspired Architecture and Algorithm: A Case for Drone Obstacle Avoidance},
+  author={Xu, Jingao and Li, Danyang and Yang, Zheng and Zhao, Yishujie and Cao, Hao and Liu, Yunhao and Shangguan, Longfei},
+  booktitle={29th Annual International Conference on Mobile Computing and Networking (ACM MobiCom)},
+  year={2023}
+}
+```
 
 ---
 
